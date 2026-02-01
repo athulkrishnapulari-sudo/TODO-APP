@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+    <aside class="col col-left">
+        <div class="card profile-card">
+            <div class="avatar-large">
+              <img class="avatar-img" src="athul.jpg" alt="Athul Krishna">
+            </div>
+            <div class="profile-meta">
+                <h2>Athul Krishna</h2>
+                <span>Student Dashboard</span>
+            </div>
+        </div>
+
+        <div class="card input-card">
+            <h3>Add New Task</h3>
+            <input type="text" id="taskName" placeholder="Task Title">
+            <textarea id="taskDesc" rows="4" placeholder="Description (Optional)"></textarea>
+            <div class="form-row">
+                <input type="datetime-local" id="taskDate">
+                <select id="taskCat">
+                    <option value="Academic">Academic</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                </select>
+            </div>
+            <label class="toggle-container" style="display: flex;">
+                <input type="checkbox" id="isImp">
+                <p>Mark as Important</p>
+            </label>
+            <button class="btn-primary" onclick="addTask()">Pin Task</button>
+        </div>
+    </aside>
+
+    <main class="col col-center">
+        <div class="feed-header">
+            <h1>Timeline</h1>
+            <input type="text" id="search" placeholder="Search tasks..." oninput="render()">
+        </div>
+        <div id="mainFeed" class="scroll-area"></div>
+    </main>
+
+    <aside class="col col-right">
+        <section class="card stats-card">
+            <h3>Overall Progress</h3>
+            <div class="stats-hero">
+                <h1 id="percentText">0%</h1>
+                <p>Tasks Completed</p>
+            </div>
+            <div class="progress-track">
+                <div id="progressFill"></div>
+            </div>
+        </section>
+
+        <section class="card priority-card">
+            <h3>Priority Tasks</h3>
+            <div id="priorityFeed" class="scroll-area"></div>
+        </section>
+    </aside>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
